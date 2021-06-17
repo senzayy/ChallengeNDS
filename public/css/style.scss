@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
+*{
+    box-sizing : border-box;
+    
+}
+
+body{
+    padding : 15px;
+    background-color: #F0F0F0;
+}
+
+.main-box-container{
+    width : 25%;
+    height : 250px;
+    margin : 0 auto;
+    transform: translateY(50%);
+    border : 1px solid #ddd6d6;
+    box-shadow : 9px 9px #E7E7E7;
+    padding : 5px;
+    background-color : white;
+    text-align: center;
+    h1 {
+        font-size: 27px;
+        letter-spacing: 1px;
+        padding-bottom: 10px;
+        margin-top : 5px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #999999;
+        font-family : 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+    .cari, .tambah{
+        display : block;
+        width : 75%;
+        padding : 15px;
+        font-size : 22px;
+        margin : 0 auto;
+    }
+    .tambah{
+        margin-top : 5px;
+    }
+}
+
+.hilang{
+    display : none;
+}
+
+.muncul{
+    display : block;
+}
+
+.search-box-container{
+    width : 100%;
+    height : 450px;
+    margin : 0 auto;
+    border : 1px solid #999999;
+    box-shadow : 9px 9px #E7E7E7;
+    padding : 5px;
+    background-color : white;
+    .search-box-header{
+        width : 100%;
+        height : 75px;;
+        margin-bottom : 5px;
+        border : 1px solid #999999;
+        display : block;
+        h1{
+            font-size : 24px;
+            padding : 10px;
+        }
+    }
+
+    .search-box-main{
+        height : 350px;
+        width : 100%;
+        padding : 20px;
+        margin-top : 1px;
+        background-color : #fafafa; 
+        border : 1px solid #999999;
+
+        .form-group .nama{
+            width : 100%;
+        }
+
+        .form-group{
+            margin-bottom: 20px;
+        }
+
+        a.kembali{
+            color : white;
+        }
+
+        label{
+            font-size : 25px;
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        .text-desc{
+            margin-top : 30px;
+        }
+    }
+}
+
+.info-container{
+    width : 100%;
+    
+    margin : 0 auto;
+    border : 1px solid #ddd6d6;
+    box-shadow : 9px 9px #E7E7E7;
+    padding : 10px;
+    background-color : white;
+    margin-top : 10px;
+
+    .header{
+        height : 30%;
+        background-color : white;
+        h1{
+            float : left;
+            font-size : 24px;
+            padding : 10px;
+        }
+
+        a{
+            float : right;
+            text-decoration: none;
+            padding : 10px;
+            width : 120px;
+            margin-top : 10px;
+            margin-bottom : 15px;
+            margin-right : 20px;
+            border-radius: 25px 25px;
+        }
+    }
+
+    .table-wrapper{
+        height : 40%;
+        margin-top : 10px;
+
+        .btn.edit{
+            color : white;
+        }
+    }
+}
+
+.menu-wrapper{
+    background-color : #fff;
+    width : 50%;
+    padding-left : 40px;
+    height : 700px;
+    margin : 0 auto;
+    box-shadow : 9px 9px #E7E7E7;
+
+    .menu-header{
+        height: 100px;
+        h1{
+            text-align: center;
+            padding-top : 20px;
+            margin-left : 15px;
+            font-size: 36px;
+            letter-spacing: 1.5px;
+            font-family : 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        a{
+            float : right;
+        }
+    }
+
+    .alert{
+        width : 370px;
+        margin : 0 auto;
+        margin-top : -20px;
+        margin-bottom : 10px;
+    }
+
+    .menu-content{
+        height : 500px;
+        width : 50%;
+        margin : 0 auto;
+        border : 1px solid #999999;
+        padding : 30px;
+        background-color: #E9F7FA;
+      
+        input{
+            padding : 5px;
+            width : 250px;
+        }
+
+        h1{
+            font-size : 28px;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        label{
+            font-weight: bold;
+        }
+
+        .form-group{
+            padding : 10px;
+            padding-left : 20px;
+        }
+        .btn.tambah{
+            margin-top : 30px;
+            margin-left : 145px;
+            display : inline-block;
+            width : 115px;
+        }
+        .btn.kembali{
+            color : white;
+            display : inline-block;
+            padding : 7px;
+            position: relative;
+            top : -38px;
+            left : 20px;
+            width : 100px;
+        }
+        
+    }
+}
+
+.edit-container{
+    background-color: white;
+    box-shadow : 9px 9px #E7E7E7;
+    padding : 20px;
+
+    .edit-header{
+        h1{
+            font-size : 28px;
+            padding-bottom: 10px;
+        }
+    }
+
+    
+    .btn.kembali{
+        color : white;
+    }
+}
+
+.table-edit-wrapper{
+    .btn.update{
+        float : right;
+    }
+}

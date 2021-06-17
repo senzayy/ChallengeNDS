@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.css">
+    
+    <title>Cari User</title>
+</head>
+<body>
+    <div class="search-box-container">
+        <div class="search-box-header">
+            <h1><span class="fa fa-users"></span> Search Karyawan</h1>
+        </div>
+        <div class="search-box-main">
+            <div class="col-auto my-1">
+                <label class="mr-sm-2 text-judul" for="pilih">Cari Karyawan Berdasarkan : </label>
+                <select class="custom-select mr-sm-2" id="pilih">
+                  <option value="1">Nama Karyawan</option>
+                  <option value="2">Tanggal</option>
+                  <option value="3">Nomor HP</option>
+                </select>
+              </div>
+            <form action="/search_user" method="POST">
+                <div class="form-group" id="div_karyawan" class="muncul">
+                    <label for="nama" class="muncul" id="label_nama">Nama Karyawan</label>
+                    <input type="text" name="nama_karyawan"class="form-control nama muncul" id="nama" placeholder="Nama Karyawan" style="width:300px;" required>
+                    <label for="tgl_awal"  class="hilang" id="label_tglawal">Tanggal Awal</label>
+                    <input type="date" class="form-control date hilang" name="tgl_awal" id="tgl_awal" style="width:200px;">
+                    <label for="tgl_akhir" class="hilang" id="label_tglakhir">Tanggal Akhir</label>
+                    <input type="date" class="form-control hilang" name="tgl_akhir" id="tgl_akhir" style="width:200px;">
+                    <label for="no" class="hilang" id="label_no">Nomor HP</label>
+                    <input type="text" name="no_hp"  class="form-control no hilang" id="no" placeholder="No HP" maxlength="12" style="width:300px;">
+                </div>
+                    <a href="/" class="btn btn-info kembali"><span class="fa fa-arrow-left"></span> Kembali </a>
+                     <button type="submit" class="btn btn-primary cari"><span class="fa fa-search"></span> Search</button>  
+                    </form>
+                    <%if(isSearch!=false){%>
+                    <p class="text-desc">Pencarian berdasarkan <strong><%= category %></strong> dengan nilai : <strong><%= nilai%></strong></p>
+                    <%}%>
+                </div>
+    </div>
+    <div class="info-container">
+        <div class="header">
+            <h1>Daftar Karyawan</h1>
+        </div>
+        <div class="table-wrapper">
+            <table class="table table-striped">
+                <thead>
+                  <tr class="table-dark">
+                    <th scope="col">Kode Karyawan</th>
+                    <th scope="col">Nama Karyawan</th>
+                    <th scope="col">Tanggal Masuk (DD/MM/YYYY)</th>
+                    <th scope="col">Updated Date (DD/MM/YYYY)</th>
+                    <th scope="col" colspan="2" style="text-align: center;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <%if(hasil_auto!==null){ %>
+                  <%hasil_auto.forEach((x) => {%>
+                  <tr>
+                    <th scope="row"><%=x.kode_karyawan%></th>
+                    <td><%=x.nama_karyawan%></td>
+                    <td><%=x.tanggal_masuk.getDate()%>-0<%=x.tanggal_masuk.getMonth()+1%>-<%=x.tanggal_masuk.getFullYear()%></td>
+                    <td><%=x.updated_date.getDate()%>-0<%=x.updated_date.getMonth()+1%>-<%=x.updated_date.getFullYear()%></td>
+                    <td><a href="/edit_user/<%=x.kode_karyawan%>"> <button type="button" class="btn btn-info edit">
+                    <span class="fa fa-edit"></span> Edit</button></a></td>
+                    <form action="/delete_user/<%=x.kode_karyawan%>" method="POST">
+                      <td><button type="submit" class="btn btn-danger">
+                        <span class="fa fa-trash"></span> Delete</button></td>
+                    </form>
+                  </tr>
+                </tbody>
+                <% }) %>
+                <% } %>
+
+                <%if(hasil_manual!==null){ %>
+                    <%hasil_manual.forEach((x) => {%>
+                    <tr>
+                      <th scope="row"><%=x.kode_karyawan%></th>
+                      <td><%=x.nama_karyawan%></td>
+                      <td><%=x.tanggal_masuk.getDate()%>-0<%=x.tanggal_masuk.getMonth()+1%>-<%=x.tanggal_masuk.getFullYear()%></td>
+                      <td><%=x.updated_date.getDate()%>-0<%=x.updated_date.getMonth()+1%>-<%=x.updated_date.getFullYear()%></td>
+                      <td><a href="/edit_user/<%=x.kode_karyawan%>"> <button type="button" class="btn btn-info edit">
+                      <span class="fa fa-edit"></span> Edit</button></a></td>
+                      <form action="/delete_user/<%=x.kode_karyawan%>" method="POST">
+                        <td><button type="submit" class="btn btn-danger">
+                          <span class="fa fa-trash"></span> Delete</button></td>
+                      </form>
+                    </tr>
+                  </tbody>
+                  <% }) %>
+                  <% } %>
+              </table>
+        </div>
+    </div>
+<script src="js/toggle_btn.js"></script>
+</body>
+</html>

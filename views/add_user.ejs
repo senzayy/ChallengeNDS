@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.3-web/css/all.css">
+    <title>Add Karyawan</title>
+</head>
+<body>
+    <div class="menu-wrapper">
+        <div class="menu-header">
+            <h1>ADD KARYAWAN</h1>
+        </div>
+        <% if(error){ %>
+        <div class="alert alert-danger" role="alert">
+            <%=message%>
+        </div>
+        <% } %>
+        <div class="menu-content">
+            <form action="/tambah_user" method="POST">
+                <% const y = new Date()
+                   let hari = y.getDate();
+                   let bulan = y.getMonth();
+                   let tahun = y.getFullYear();
+                   if(bulan < 10) bulan = "0" + bulan;
+                %>
+                <div class="form-group">
+                    <label for="nama">Nama Karyawan</label>
+                    <input type="text" name="nama_karyawan"  class="form-control" id="nama" placeholder="Nama Karyawan" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="tgl">Tanggal Masuk</label>
+                    <input type="date" name= "tanggal_masuk" class="form-control" id="tgl" placeholder="Tanggal Masuk"
+                     required>
+                  </div>
+                  <div class="form-group">
+                    <label for="no">Nomor HP</label>
+                    <input type="text" name="no_hp" class="form-control" id="no" placeholder="Nomor HP" maxlength="12" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="no">Limit Reimbursement</label>
+                    <input type="number" name="limit_reim" class="form-control" id="no" placeholder="Limit Reimbursement"required>
+                  </div>
+                  <button type="submit" class="btn btn-primary tambah"><span class="fa fa-plus-square"></span> Tambah</button>
+            </form>
+            <a href="/" class="btn btn-info kembali"><span class="fa fa-arrow-left"></span> Kembali </a> 
+        </div> 
+    </div>
+</body>
+</html>
